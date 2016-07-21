@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Is9-RW-6qO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="epC-nN-tVk">
-                                <rect key="frame" x="0.0" y="284" width="310" height="284"/>
+                                <rect key="frame" x="0.0" y="284" width="320" height="284"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="42" id="SEZ-OX-XbO">
-                                        <rect key="frame" x="0.0" y="28" width="310" height="42"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SEZ-OX-XbO" id="Zee-N3-G1f">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="41.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="41.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -70,7 +70,7 @@
                             <constraint firstItem="epC-nN-tVk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="M28-UP-sOY"/>
                             <constraint firstItem="5HH-Ia-dfc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="RCP-2H-YRr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="epC-nN-tVk" secondAttribute="bottom" id="TGJ-7H-Ahp"/>
-                            <constraint firstAttribute="trailing" secondItem="epC-nN-tVk" secondAttribute="trailing" constant="10" id="hRV-ja-0DI"/>
+                            <constraint firstAttribute="trailing" secondItem="epC-nN-tVk" secondAttribute="trailing" id="hRV-ja-0DI"/>
                             <constraint firstItem="epC-nN-tVk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="xfx-hx-3Mg"/>
                         </constraints>
                     </view>
@@ -84,6 +84,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="280" y="337"/>
+        </scene>
+        <!--Random Picker View Controller-->
+        <scene sceneID="jJL-Yg-Nrd">
+            <objects>
+                <viewController id="Is9-RW-6qO" customClass="RandomPickerViewController" customModule="Aleatorio" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7q-Es-4Bq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gyv-hm-6vC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7X0-wG-LgB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffr-rj-pod">
+                                <rect key="frame" x="0.0" y="28" width="320" height="160"/>
+                                <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZd-t7-vSN">
+                                <rect key="frame" x="114" y="198" width="91" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="36Z-4N-CbX"/>
+                                    <constraint firstAttribute="width" constant="91" id="jQo-xE-iv1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KannadaSangamMN-Bold" family="Kannada Sangam MN" pointSize="17"/>
+                                <state key="normal" title="Sortear!" backgroundImage="RandomizeButtonBG">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="randomizeSelection:" destination="Is9-RW-6qO" eventType="touchUpInside" id="vqK-Ay-WL7"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0a-lD-6jX">
+                                <rect key="frame" x="0.0" y="276" width="320" height="284"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Is9-RW-6qO" id="4Ez-fA-Ih2"/>
+                                    <outlet property="delegate" destination="Is9-RW-6qO" id="n8w-cY-km4"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqJ-jD-3Ce">
+                                <rect key="frame" x="117.5" y="530" width="86" height="30"/>
+                                <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="12"/>
+                                <state key="normal" title="Adicionar item +">
+                                    <color key="titleColor" red="0.043137254901960784" green="0.31372549019607843" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAddItemAlert:" destination="Is9-RW-6qO" eventType="touchUpInside" id="eLA-lR-qsJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HZd-t7-vSN" firstAttribute="top" secondItem="Ffr-rj-pod" secondAttribute="bottom" constant="10" id="EKg-5x-epE"/>
+                            <constraint firstItem="Ffr-rj-pod" firstAttribute="top" secondItem="L7q-Es-4Bq" secondAttribute="bottom" constant="8" id="Gqt-yh-F4H"/>
+                            <constraint firstItem="Gyv-hm-6vC" firstAttribute="top" secondItem="UqJ-jD-3Ce" secondAttribute="bottom" constant="8" id="L9z-v2-UiJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Ffr-rj-pod" secondAttribute="trailing" id="Nih-AF-FjM"/>
+                            <constraint firstItem="UqJ-jD-3Ce" firstAttribute="centerX" secondItem="7X0-wG-LgB" secondAttribute="centerX" id="T7M-cu-5YM"/>
+                            <constraint firstAttribute="trailing" secondItem="G0a-lD-6jX" secondAttribute="trailing" id="cmF-sx-JPK"/>
+                            <constraint firstItem="HZd-t7-vSN" firstAttribute="centerX" secondItem="7X0-wG-LgB" secondAttribute="centerX" id="eR8-V1-MFY"/>
+                            <constraint firstItem="G0a-lD-6jX" firstAttribute="height" secondItem="7X0-wG-LgB" secondAttribute="height" multiplier="1:2" id="m1b-k7-rrE"/>
+                            <constraint firstItem="G0a-lD-6jX" firstAttribute="top" secondItem="HZd-t7-vSN" secondAttribute="bottom" constant="40" id="pUc-2r-N8X"/>
+                            <constraint firstItem="Ffr-rj-pod" firstAttribute="leading" secondItem="7X0-wG-LgB" secondAttribute="leading" id="z9I-As-UYR"/>
+                            <constraint firstItem="Gyv-hm-6vC" firstAttribute="top" secondItem="G0a-lD-6jX" secondAttribute="bottom" constant="8" id="zNC-k1-ndS"/>
+                            <constraint firstItem="G0a-lD-6jX" firstAttribute="leading" secondItem="7X0-wG-LgB" secondAttribute="leading" id="ztM-aZ-P1d"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="pickerView" destination="G0a-lD-6jX" id="sDn-JX-a7h"/>
+                        <outlet property="resultLabel" destination="Ffr-rj-pod" id="vY1-Zx-xie"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLK-mc-DlU" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722" y="337"/>
         </scene>
     </scenes>
     <resources>
