@@ -10,12 +10,23 @@ import UIKit
 
 class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    
+//------------------------------
+//MARK: Storyboard connections
+//------------------------------
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var editButton: UIButton!
     @IBOutlet var addButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
+    @IBOutlet var hideButton: UIButton!
+    @IBOutlet var okButton: UIButton!
     @IBOutlet var randomizeButton: UIButton!
     
+    
+//------------------------------
+//MARK: Properties
+//------------------------------
     let fontName: String = "Kannada Sangam MN"
     let snorkelBlueColor: UIColor = UIColor(red: 11/255.0, green: 80/255.0, blue: 130/255.0, alpha: 1.0)
     let defaultRadius: CGFloat = 8.0
@@ -24,18 +35,9 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     var isEditingList: Bool = false
     
     
-    
 //------------------------------
 //MARK: Lifecycle
 //------------------------------
-    
-    override func viewWillAppear(animated: Bool) {
-        
-        let selectedRow = self.pickerView.selectedRowInComponent(0)
-        let selectedItemView = self.pickerView.viewForRow(selectedRow, forComponent: 0) as! PickerItem
-        selectedItemView.visibilityButton.hidden = false
-        selectedItemView.deleteButton.hidden = false
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +45,20 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.pickerView.selectRow(self.items.count/2, inComponent: 0, animated: false)
         
         self.addButton.hidden = true
+        self.deleteButton.hidden = true
+        self.hideButton.hidden = true
+        self.okButton.hidden = true
+        self.editButton.hidden = false
         self.randomizeButton.enabled = true
+        
+        //let selectedRow = self.pickerView.selectedRowInComponent(0)
+        //let selectedItemView = self.pickerView.viewForRow(selectedRow, forComponent: 0) as! PickerItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
 //------------------------------
@@ -66,33 +74,16 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.pickerView.selectRow(random, inComponent: 0, animated: true)
     }
     
-    @IBAction func manageListEdition(sender: UIButton) {
+    @IBAction func allowEdition(sender: AnyObject) {
         
-        if self.isEditingList {
-            
-            self.addButton.hidden = true
-            self.randomizeButton.enabled = true
-            self.editButton.setTitle("Editar", forState: .Normal)
-            
-            self.isEditingList = false
-            
-            self.pickerView.reloadAllComponents()
-        }
-        else {
-            
-            self.addButton.hidden = false
-            self.randomizeButton.enabled = false
-            self.editButton.setTitle("Concluir edição", forState: .Normal)
-            
-            let selectedRow = self.pickerView.selectedRowInComponent(0)
-            let selectedItemView = self.pickerView.viewForRow(selectedRow, forComponent: 0) as! PickerItem
-            selectedItemView.visibilityButton.hidden = false
-            selectedItemView.deleteButton.hidden = false
-            
-            self.isEditingList = true
-        }
+        self.addButton.hidden = false
+        self.deleteButton.hidden = false
+        self.hideButton.hidden = false
+        self.okButton.hidden = false
+        self.editButton.hidden = true
+        self.randomizeButton.enabled = false
+        self.resultLabel.enabled = false
     }
-    
     
     @IBAction func showAddItemAlert(sender: UIButton) {
         
@@ -149,11 +140,68 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func showRemoveConfirmationAlert(sender: UIButton) {
+    
+        let selectedRow = self.pickerView.selectedRowInComponent(0)
+        let selectedItemName = self.items[selectedRow]
+        
+        let alert = SimpleAlert.Controller(title: "Deseja mesmo remover", message: selectedItemName, style: .Alert)
+        
+        alert.configContentView = { [weak self] view in
+            if let view = view as? SimpleAlert.ContentView {
+                view.titleLabel.textColor = UIColor.whiteColor()
+                view.titleLabel.font = UIFont(name: self!.fontName, size: 20)
+                view.messageLabel.textColor = UIColor.whiteColor()
+                view.messageLabel.font = UIFont(name: self!.fontName, size: 18)
+                view.backgroundColor = self!.snorkelBlueColor
+            }
+        }
+        
+        alert.configContainerCornerRadius = {
+            return self.defaultRadius * 2
+        }
+        
+        let cancelAction = SimpleAlert.Action(title: "Cancelar", style: .Cancel)
+        let deleteAction = SimpleAlert.Action(title: "SIIIIM", style: .OK)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        
+        cancelAction.button.titleLabel?.font = UIFont(name: self.fontName, size: 14)
+        cancelAction.button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        
+        deleteAction.button.titleLabel?.font = UIFont(name: self.fontName, size: 14)
+        deleteAction.button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        deleteAction.button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+        deleteAction.button.addTarget(self, action: #selector(self.removeItem(_:)), forControlEvents: .TouchUpInside)
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
     func removeItem(sender: UIButton) {
         
-        self.items.removeAtIndex(sender.tag)
+        let selectedRow = self.pickerView.selectedRowInComponent(0)
+        self.items.removeAtIndex(selectedRow)
         self.pickerView.reloadAllComponents()
+        dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func hideItem(sender: UIButton) {
+        
+        
+    }
+    
+    @IBAction func endEdition(sender: UIButton) {
+        
+        self.addButton.hidden = true
+        self.deleteButton.hidden = true
+        self.hideButton.hidden = true
+        self.okButton.hidden = true
+        self.editButton.hidden = false
+        self.randomizeButton.enabled = true
+        self.resultLabel.enabled = true
+    }
+    
     
 //------------------------------
 //MARK: Pickerview
@@ -173,40 +221,19 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         let font = UIFont(name: self.fontName, size: 14)
         let color = UIColor.darkGrayColor()
         
-        let itemView = NSBundle.mainBundle().loadNibNamed("PickerItem", owner: self, options: nil)[0] as! PickerItem
-        itemView.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        itemView.itemName.font = font
-        itemView.itemName.textColor = color
-        itemView.itemName.textAlignment = .Center
-        itemView.itemName.text = item
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = color
+        pickerLabel.text = item
+        pickerLabel.font = font
+        pickerLabel.textAlignment = NSTextAlignment.Center
         
-        itemView.deleteButton.hidden = true
-        itemView.visibilityButton.hidden = true
-        
-        itemView.deleteButton.tag = row
-        itemView.deleteButton.addTarget(self, action: #selector(self.removeItem(_:)), forControlEvents: .TouchUpInside)
-        
-        return itemView
+        return pickerLabel
     }
     
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 30.0
     }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        if isEditingList {
-            let itemView = pickerView.viewForRow(row, forComponent: component) as! PickerItem
-            itemView.deleteButton.hidden = false
-            itemView.visibilityButton.hidden = false
-            
-            if itemView.deleteTaped {
-                removeItem(itemView.deleteButton)
-            }
-        }
-    }
 }
-
 
 
 //------------------------------

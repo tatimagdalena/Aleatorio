@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Is9-RW-6qO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Is9-RW-6qO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SEZ-OX-XbO" id="Zee-N3-G1f">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="41.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfx-jc-ywg">
-                                <rect key="frame" x="114.5" y="206" width="91" height="38"/>
+                                <rect key="frame" x="115" y="206" width="91" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="2vf-xP-irF"/>
                                     <constraint firstAttribute="width" constant="91" id="3aq-qt-uku"/>
@@ -98,13 +98,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffr-rj-pod">
-                                <rect key="frame" x="0.0" y="28" width="320" height="164"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="166"/>
                                 <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZd-t7-vSN">
-                                <rect key="frame" x="114" y="202" width="91" height="38"/>
+                                <rect key="frame" x="114" y="204" width="91" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="36Z-4N-CbX"/>
                                     <constraint firstAttribute="width" constant="91" id="jQo-xE-iv1"/>
@@ -118,50 +118,92 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqJ-jD-3Ce">
-                                <rect key="frame" x="293" y="538" width="17" height="22"/>
+                                <rect key="frame" x="210" y="540" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="BTZ-MH-Bad"/>
-                                    <constraint firstAttribute="width" constant="17" id="QFM-dk-3NU"/>
+                                    <constraint firstAttribute="height" constant="20" id="g4B-6h-pND"/>
+                                    <constraint firstAttribute="width" constant="20" id="t1q-gb-I8E"/>
                                 </constraints>
-                                <state key="normal" image="Add">
+                                <state key="normal" image="add">
                                     <color key="titleColor" red="0.043137254901960784" green="0.31372549019607843" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="showAddItemAlert:" destination="Is9-RW-6qO" eventType="touchUpInside" id="eLA-lR-qsJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeL-CS-0JT">
-                                <rect key="frame" x="142.5" y="531" width="35" height="33"/>
-                                <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="14"/>
-                                <state key="normal" title="Editar">
-                                    <color key="titleColor" red="0.043137254901960784" green="0.31372549019607843" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="manageListEdition:" destination="Is9-RW-6qO" eventType="touchUpInside" id="TQg-OQ-LUA"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0a-lD-6jX">
-                                <rect key="frame" x="0.0" y="280" width="320" height="258"/>
+                                <rect key="frame" x="0.0" y="282" width="320" height="258"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Is9-RW-6qO" id="4Ez-fA-Ih2"/>
                                     <outlet property="delegate" destination="Is9-RW-6qO" id="n8w-cY-km4"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yty-hd-San">
+                                <rect key="frame" x="90" y="540" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="ph9-G0-E19"/>
+                                    <constraint firstAttribute="height" constant="20" id="wcy-Lg-Lam"/>
+                                </constraints>
+                                <state key="normal" image="delete"/>
+                                <connections>
+                                    <action selector="showRemoveConfirmationAlert:" destination="Is9-RW-6qO" eventType="touchUpInside" id="XRM-en-DTf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb9-KW-d6d">
+                                <rect key="frame" x="145" y="533" width="30" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="lMj-O7-prG"/>
+                                    <constraint firstAttribute="width" constant="30" id="uA1-wa-7sE"/>
+                                </constraints>
+                                <state key="normal" image="visible"/>
+                                <connections>
+                                    <action selector="hideItem:" destination="Is9-RW-6qO" eventType="touchUpInside" id="ND7-PV-8GU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqZ-eF-fRM">
+                                <rect key="frame" x="282" y="535" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Aev-T9-Mfh"/>
+                                    <constraint firstAttribute="width" constant="30" id="oSv-B8-NQ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="14"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="0.043137254901960784" green="0.31372549019607843" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="endEdition:" destination="Is9-RW-6qO" eventType="touchUpInside" id="UCy-FS-qA9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeL-CS-0JT">
+                                <rect key="frame" x="142" y="501" width="35" height="33"/>
+                                <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="14"/>
+                                <state key="normal" title="Editar">
+                                    <color key="titleColor" red="0.043137254901960784" green="0.31372549019607843" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="allowEdition:" destination="Is9-RW-6qO" eventType="touchUpInside" id="t7B-cW-OSY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Gyv-hm-6vC" firstAttribute="top" secondItem="WeL-CS-0JT" secondAttribute="bottom" constant="4" id="2x9-qf-S2i"/>
+                            <constraint firstItem="gb9-KW-d6d" firstAttribute="centerX" secondItem="7X0-wG-LgB" secondAttribute="centerX" id="5DX-WO-hYF"/>
+                            <constraint firstAttribute="trailing" secondItem="oqZ-eF-fRM" secondAttribute="trailing" constant="8" id="6Jn-R3-vMm"/>
+                            <constraint firstItem="gb9-KW-d6d" firstAttribute="leading" secondItem="yty-hd-San" secondAttribute="trailing" constant="35" id="AMH-ln-i65"/>
                             <constraint firstItem="HZd-t7-vSN" firstAttribute="top" secondItem="Ffr-rj-pod" secondAttribute="bottom" constant="10" id="EKg-5x-epE"/>
                             <constraint firstItem="Ffr-rj-pod" firstAttribute="top" secondItem="L7q-Es-4Bq" secondAttribute="bottom" constant="8" id="Gqt-yh-F4H"/>
                             <constraint firstItem="Gyv-hm-6vC" firstAttribute="top" secondItem="UqJ-jD-3Ce" secondAttribute="bottom" constant="8" id="L9z-v2-UiJ"/>
                             <constraint firstItem="WeL-CS-0JT" firstAttribute="centerX" secondItem="7X0-wG-LgB" secondAttribute="centerX" id="LCj-dg-3h6"/>
                             <constraint firstAttribute="trailing" secondItem="Ffr-rj-pod" secondAttribute="trailing" id="Nih-AF-FjM"/>
-                            <constraint firstAttribute="trailing" secondItem="UqJ-jD-3Ce" secondAttribute="trailing" constant="10" id="b5j-Dp-mJE"/>
+                            <constraint firstItem="UqJ-jD-3Ce" firstAttribute="centerY" secondItem="gb9-KW-d6d" secondAttribute="centerY" id="b11-gT-Tsw"/>
                             <constraint firstAttribute="trailing" secondItem="G0a-lD-6jX" secondAttribute="trailing" id="cmF-sx-JPK"/>
                             <constraint firstItem="HZd-t7-vSN" firstAttribute="centerX" secondItem="7X0-wG-LgB" secondAttribute="centerX" id="eR8-V1-MFY"/>
+                            <constraint firstItem="UqJ-jD-3Ce" firstAttribute="leading" secondItem="gb9-KW-d6d" secondAttribute="trailing" constant="35" id="emd-so-W4A"/>
                             <constraint firstItem="UqJ-jD-3Ce" firstAttribute="top" secondItem="G0a-lD-6jX" secondAttribute="bottom" id="fF1-mV-gRu"/>
                             <constraint firstItem="G0a-lD-6jX" firstAttribute="height" secondItem="7X0-wG-LgB" secondAttribute="height" multiplier="1:2.2" id="m1b-k7-rrE"/>
+                            <constraint firstItem="oqZ-eF-fRM" firstAttribute="centerY" secondItem="UqJ-jD-3Ce" secondAttribute="centerY" id="mPb-Cf-HEg"/>
                             <constraint firstItem="G0a-lD-6jX" firstAttribute="top" secondItem="HZd-t7-vSN" secondAttribute="bottom" constant="40" id="pUc-2r-N8X"/>
+                            <constraint firstItem="gb9-KW-d6d" firstAttribute="centerY" secondItem="yty-hd-San" secondAttribute="centerY" id="uFD-ba-6j5"/>
                             <constraint firstItem="Ffr-rj-pod" firstAttribute="leading" secondItem="7X0-wG-LgB" secondAttribute="leading" id="z9I-As-UYR"/>
                             <constraint firstItem="G0a-lD-6jX" firstAttribute="leading" secondItem="7X0-wG-LgB" secondAttribute="leading" id="ztM-aZ-P1d"/>
                         </constraints>
@@ -169,7 +211,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="addButton" destination="UqJ-jD-3Ce" id="RJm-hZ-gDF"/>
+                        <outlet property="deleteButton" destination="yty-hd-San" id="dzI-hh-iZe"/>
                         <outlet property="editButton" destination="WeL-CS-0JT" id="Sm8-lG-hi1"/>
+                        <outlet property="hideButton" destination="gb9-KW-d6d" id="QTb-qN-UCA"/>
+                        <outlet property="okButton" destination="oqZ-eF-fRM" id="gev-Cb-Fzh"/>
                         <outlet property="pickerView" destination="G0a-lD-6jX" id="sDn-JX-a7h"/>
                         <outlet property="randomizeButton" destination="HZd-t7-vSN" id="Y1S-nU-bYS"/>
                         <outlet property="resultLabel" destination="Ffr-rj-pod" id="vY1-Zx-xie"/>
@@ -181,7 +226,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add" width="17" height="17"/>
         <image name="RandomizeButtonBG" width="91" height="38"/>
+        <image name="add" width="30" height="30"/>
+        <image name="delete" width="30" height="30"/>
+        <image name="visible" width="45" height="45"/>
     </resources>
 </document>

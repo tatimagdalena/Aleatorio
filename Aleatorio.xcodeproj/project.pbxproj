@@ -18,8 +18,6 @@
 		160014601D40F8A4006F01FF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1600145C1D40F8A4006F01FF /* Info.plist */; };
 		160014611D40F8A4006F01FF /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600145E1D40F8A4006F01FF /* SimpleAlert.swift */; };
 		160014621D40F8A4006F01FF /* SimpleAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1600145F1D40F8A4006F01FF /* SimpleAlert.xib */; };
-		160014641D41A5FF006F01FF /* PickerItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 160014631D41A5FF006F01FF /* PickerItem.xib */; };
-		160014671D41B153006F01FF /* PickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160014661D41B153006F01FF /* PickerItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +50,12 @@
 		160014281D3F07A5006F01FF /* AleatorioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AleatorioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1600142C1D3F07A5006F01FF /* AleatorioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AleatorioUITests.swift; sourceTree = "<group>"; };
 		1600142E1D3F07A5006F01FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1600143A1D3F0C12006F01FF /* RandomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomListViewController.swift; path = ../RandomListViewController.swift; sourceTree = "<group>"; };
-		1600143E1D404AC9006F01FF /* RandomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomPickerViewController.swift; path = ../RandomPickerViewController.swift; sourceTree = "<group>"; };
+		1600143A1D3F0C12006F01FF /* RandomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomListViewController.swift; sourceTree = "<group>"; };
+		1600143E1D404AC9006F01FF /* RandomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPickerViewController.swift; sourceTree = "<group>"; };
 		1600145C1D40F8A4006F01FF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1600145D1D40F8A4006F01FF /* SimpleAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAlert.h; sourceTree = "<group>"; };
 		1600145E1D40F8A4006F01FF /* SimpleAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		1600145F1D40F8A4006F01FF /* SimpleAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleAlert.xib; sourceTree = "<group>"; };
-		160014631D41A5FF006F01FF /* PickerItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerItem.xib; sourceTree = "<group>"; };
-		160014661D41B153006F01FF /* PickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,8 +167,6 @@
 		160014651D41A606006F01FF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				160014631D41A5FF006F01FF /* PickerItem.xib */,
-				160014661D41B153006F01FF /* PickerItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,7 +282,6 @@
 				160014171D3F07A5006F01FF /* LaunchScreen.storyboard in Resources */,
 				160014141D3F07A5006F01FF /* Assets.xcassets in Resources */,
 				160014621D40F8A4006F01FF /* SimpleAlert.xib in Resources */,
-				160014641D41A5FF006F01FF /* PickerItem.xib in Resources */,
 				160014121D3F07A5006F01FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +309,6 @@
 			files = (
 				1600143F1D404AC9006F01FF /* RandomPickerViewController.swift in Sources */,
 				1600140D1D3F07A5006F01FF /* AppDelegate.swift in Sources */,
-				160014671D41B153006F01FF /* PickerItem.swift in Sources */,
 				160014611D40F8A4006F01FF /* SimpleAlert.swift in Sources */,
 				1600143B1D3F0C12006F01FF /* RandomListViewController.swift in Sources */,
 			);
@@ -543,6 +535,7 @@
 				160014331D3F07A5006F01FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		160014341D3F07A5006F01FF /* Build configuration list for PBXNativeTarget "AleatorioTests" */ = {
 			isa = XCConfigurationList;
@@ -551,6 +544,7 @@
 				160014361D3F07A5006F01FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		160014371D3F07A5006F01FF /* Build configuration list for PBXNativeTarget "AleatorioUITests" */ = {
 			isa = XCConfigurationList;
@@ -559,6 +553,7 @@
 				160014391D3F07A5006F01FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
