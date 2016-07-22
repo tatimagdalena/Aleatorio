@@ -12,12 +12,16 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
 
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet var editButton: UIButton!
+    @IBOutlet var addButton: UIButton!
+    @IBOutlet var randomizeButton: UIButton!
     
     let fontName: String = "Kannada Sangam MN"
     let snorkelBlueColor: UIColor = UIColor(red: 11/255.0, green: 80/255.0, blue: 130/255.0, alpha: 1.0)
     let defaultRadius: CGFloat = 8.0
     var items: [String] = ["Frango à Parmegiana", "BK", "Zaitune", "Dioguinho", "Costelo", "Beco", "Conexão", "Toledo", "Galeto Castelo"]
     var newItemTextField: UITextField?
+    var isEditingList: Bool = false
     
     
     
@@ -25,10 +29,21 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
 //MARK: Lifecycle
 //------------------------------
     
+    override func viewWillAppear(animated: Bool) {
+        
+        let selectedRow = self.pickerView.selectedRowInComponent(0)
+        let selectedItemView = self.pickerView.viewForRow(selectedRow, forComponent: 0) as! PickerItem
+        selectedItemView.visibilityButton.hidden = false
+        selectedItemView.deleteButton.hidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.pickerView.selectRow(self.items.count/2, inComponent: 0, animated: false)
+        
+        self.addButton.hidden = true
+        self.randomizeButton.enabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +65,34 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.resultLabel.text = items[random]
         self.pickerView.selectRow(random, inComponent: 0, animated: true)
     }
+    
+    @IBAction func manageListEdition(sender: UIButton) {
+        
+        if self.isEditingList {
+            
+            self.addButton.hidden = true
+            self.randomizeButton.enabled = true
+            self.editButton.setTitle("Editar", forState: .Normal)
+            
+            self.isEditingList = false
+            
+            self.pickerView.reloadAllComponents()
+        }
+        else {
+            
+            self.addButton.hidden = false
+            self.randomizeButton.enabled = false
+            self.editButton.setTitle("Concluir edição", forState: .Normal)
+            
+            let selectedRow = self.pickerView.selectedRowInComponent(0)
+            let selectedItemView = self.pickerView.viewForRow(selectedRow, forComponent: 0) as! PickerItem
+            selectedItemView.visibilityButton.hidden = false
+            selectedItemView.deleteButton.hidden = false
+            
+            self.isEditingList = true
+        }
+    }
+    
     
     @IBAction func showAddItemAlert(sender: UIButton) {
         
@@ -99,13 +142,18 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    @objc func addItem(sender: UIButton) {
+    func addItem(sender: UIButton) {
         
         self.items.append(self.newItemTextField!.text!)
         self.pickerView.reloadAllComponents()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func removeItem(sender: UIButton) {
+        
+        self.items.removeAtIndex(sender.tag)
+        self.pickerView.reloadAllComponents()
+    }
     
 //------------------------------
 //MARK: Pickerview
@@ -125,29 +173,40 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         let font = UIFont(name: self.fontName, size: 14)
         let color = UIColor.darkGrayColor()
         
-        let pickerLabel = UILabel()
-        pickerLabel.textColor = color
-        pickerLabel.text = item
-        pickerLabel.font = font
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        let itemView = NSBundle.mainBundle().loadNibNamed("PickerItem", owner: self, options: nil)[0] as! PickerItem
+        itemView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        itemView.itemName.font = font
+        itemView.itemName.textColor = color
+        itemView.itemName.textAlignment = .Center
+        itemView.itemName.text = item
         
-        return pickerLabel
+        itemView.deleteButton.hidden = true
+        itemView.visibilityButton.hidden = true
+        
+        itemView.deleteButton.tag = row
+        itemView.deleteButton.addTarget(self, action: #selector(self.removeItem(_:)), forControlEvents: .TouchUpInside)
+        
+        return itemView
     }
     
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 30.0
     }
     
-    
-    
-//------------------------------
-//MARK: Navigation
-//------------------------------
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        if isEditingList {
+            let itemView = pickerView.viewForRow(row, forComponent: component) as! PickerItem
+            itemView.deleteButton.hidden = false
+            itemView.visibilityButton.hidden = false
+            
+            if itemView.deleteTaped {
+                removeItem(itemView.deleteButton)
+            }
+        }
     }
-    */
 }
+
+
+
+//------------------------------
