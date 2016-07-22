@@ -61,6 +61,7 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
             textField.layer.borderColor = nil
             textField.layer.borderWidth = 0
             textField.placeholder = "Digite o novo restaurante"
+            textField.font = UIFont(name: self.fontName, size: 14)
             self.newItemTextField = textField
         }
         
@@ -74,6 +75,10 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
                 view.textBackgroundView.layer.cornerRadius = self!.defaultRadius
                 view.textBackgroundView.clipsToBounds = true
             }
+        }
+        
+        alert.configContainerCornerRadius = {
+            return self.defaultRadius * 2
         }
         
         let cancelAction = SimpleAlert.Action(title: "Cancelar", style: .Cancel)
@@ -94,9 +99,11 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    @objc func addItem(item: String) {
+    @objc func addItem(sender: UIButton) {
         
-        print(self.newItemTextField?.text)
+        self.items.append(self.newItemTextField!.text!)
+        self.pickerView.reloadAllComponents()
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
