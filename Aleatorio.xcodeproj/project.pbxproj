@@ -19,6 +19,7 @@
 		160014611D40F8A4006F01FF /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600145E1D40F8A4006F01FF /* SimpleAlert.swift */; };
 		160014621D40F8A4006F01FF /* SimpleAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1600145F1D40F8A4006F01FF /* SimpleAlert.xib */; };
 		1600146B1D457700006F01FF /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600146A1D457700006F01FF /* ItemModel.swift */; };
+		1600146E1D459427006F01FF /* RandomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600146D1D459427006F01FF /* RandomExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		1600145E1D40F8A4006F01FF /* SimpleAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		1600145F1D40F8A4006F01FF /* SimpleAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleAlert.xib; sourceTree = "<group>"; };
 		1600146A1D457700006F01FF /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		1600146D1D459427006F01FF /* RandomExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				160014151D3F07A5006F01FF /* LaunchScreen.storyboard */,
 				160014181D3F07A5006F01FF /* Info.plist */,
 				160014401D40F161006F01FF /* Vendor */,
+				1600146C1D4593E8006F01FF /* Extensions */,
 				160014691D4576E0006F01FF /* Model */,
 				160014651D41A606006F01FF /* View */,
 				160014411D40F170006F01FF /* ViewController */,
@@ -180,6 +183,14 @@
 				1600146A1D457700006F01FF /* ItemModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1600146C1D4593E8006F01FF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1600146D1D459427006F01FF /* RandomExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1600146E1D459427006F01FF /* RandomExtension.swift in Sources */,
 				1600146B1D457700006F01FF /* ItemModel.swift in Sources */,
 				1600143F1D404AC9006F01FF /* RandomPickerViewController.swift in Sources */,
 				1600140D1D3F07A5006F01FF /* AppDelegate.swift in Sources */,

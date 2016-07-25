@@ -32,7 +32,7 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     let snorkelBlueColor: UIColor = UIColor(red: 11/255.0, green: 80/255.0, blue: 130/255.0, alpha: 1.0)
     let defaultRadius: CGFloat = 8.0
     var allItems: [ItemModel]!
-    var notHiddenItems: [ItemModel]!
+    var hiddenIndexes: [Int]!
     
     var newItemTextField: UITextField?
     var isEditingList: Bool = false
@@ -46,16 +46,11 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         super.viewDidLoad()
         
         self.loadItems()
+        self.getHiddenIndexes()
         
         self.pickerView.selectRow(self.allItems.count/2, inComponent: 0, animated: false)
         
         self.endEdition(self.editButton)
-//        self.addButton.hidden = true
-//        self.deleteButton.hidden = true
-//        self.hideButton.hidden = true
-//        self.okButton.hidden = true
-//        self.editButton.hidden = false
-//        self.randomizeButton.enabled = true
         
         //let selectedRow = self.pickerView.selectedRowInComponent(0)
         //let selectedItemView = self.pickerView.viewForRow(selectedRow, forComponent: 0) as! PickerItem
@@ -66,9 +61,12 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Dispose of any resources that can be recreated.
     }
     
+    
+//------------------------------
+//MARK: Data
+//------------------------------
+    
     func loadItems() {
-        
-        //["Frango à Parmegiana", "BK", "Zaitune", "Dioguinho", "Costelo", "Beco", "Conexão", "Toledo", "Galeto Castelo"]
         
         let item1 = ItemModel(name: "Frango à Parmegiana", isHidden: false)
         let item2 = ItemModel(name: "BK", isHidden: false)
@@ -81,7 +79,18 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         let item9 = ItemModel(name: "Galeto Castelo", isHidden: false)
         
         self.allItems = [item1, item2, item3, item4, item5, item6, item7, item8, item9]
+    }
+    
+    func getHiddenIndexes() {
         
+        self.hiddenIndexes = []
+        
+        for item in self.allItems {
+            
+            if item.isHidden!{
+                self.hiddenIndexes.append(self.allItems.indexOf(item)!)
+            }
+        }
     }
     
 //------------------------------
@@ -90,8 +99,11 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func randomizeSelection(sender: UIButton) {
         
-        let itemsAmount = UInt32(self.allItems.count)
-        let random = Int(arc4random_uniform(itemsAmount))
+        //let itemsAmount = Int(self.allItems.count)
+        //let random = Int(arc4random_uniform(itemsAmount))
+        
+        let itemsIndexes = (0...self.allItems.count-1)
+        let random = itemsIndexes.random(without: self.hiddenIndexes)
         
         self.resultLabel.text = allItems[random].name
         self.pickerView.selectRow(random, inComponent: 0, animated: true)
@@ -217,7 +229,24 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func hideItem(sender: UIButton) {
         
+        let selectedRow = self.pickerView.selectedRowInComponent(0)
+        let item = self.allItems[selectedRow]
         
+        if item.isHidden! {
+            
+            let indexToRemove = self.hiddenIndexes.indexOf(selectedRow)
+            self.hiddenIndexes.removeAtIndex(indexToRemove!)
+            self.hideButton.setImage(UIImage(named: "visible"), forState: .Normal)
+            self.allItems[selectedRow].isHidden = false
+        }
+        else {
+            
+            self.hiddenIndexes.append(selectedRow)
+            self.hideButton.setImage(UIImage(named: "invisible"), forState: .Normal)
+            self.allItems[selectedRow].isHidden = true
+        }
+        
+        self.pickerView.reloadAllComponents()
     }
     
     @IBAction func endEdition(sender: UIButton) {
@@ -256,6 +285,13 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         pickerLabel.font = font
         pickerLabel.textAlignment = NSTextAlignment.Center
         
+        if item.isHidden! {
+            pickerLabel.hidden = true
+        }
+        else {
+            pickerLabel.hidden = false
+        }
+        
         return pickerLabel
     }
     
@@ -265,6 +301,12 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        if self.allItems[row].isHidden! {
+            self.hideButton.setImage(UIImage(named: "invisible"), forState: .Normal)
+        }
+        else {
+            self.hideButton.setImage(UIImage(named: "visible"), forState: .Normal)
+        }
     }
 }
 
