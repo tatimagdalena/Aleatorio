@@ -1,5 +1,5 @@
 //
-//  RandomExtension.swift
+//  RangeExtension.swift
 //  Aleatorio
 //
 //  Created by Tatiana Magdalena on 7/24/16.

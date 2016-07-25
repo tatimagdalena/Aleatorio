@@ -6,85 +6,6 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Random List View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="RandomListViewController" customModule="Aleatorio" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="epC-nN-tVk">
-                                <rect key="frame" x="0.0" y="284" width="320" height="284"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="42" id="SEZ-OX-XbO">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="42"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SEZ-OX-XbO" id="Zee-N3-G1f">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="41.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="qPv-Hh-Piv"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2H7-F5-Wyf"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HH-Ia-dfc">
-                                <rect key="frame" x="0.0" y="28" width="320" height="168"/>
-                                <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfx-jc-ywg">
-                                <rect key="frame" x="115" y="206" width="91" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="2vf-xP-irF"/>
-                                    <constraint firstAttribute="width" constant="91" id="3aq-qt-uku"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KannadaSangamMN-Bold" family="Kannada Sangam MN" pointSize="17"/>
-                                <state key="normal" title="Sortear!" backgroundImage="RandomizeButtonBG">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="randomizeSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gFE-aP-T8D"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="bfx-jc-ywg" firstAttribute="top" secondItem="5HH-Ia-dfc" secondAttribute="bottom" constant="10" id="187-YN-sJf"/>
-                            <constraint firstAttribute="trailing" secondItem="5HH-Ia-dfc" secondAttribute="trailing" id="3sZ-ko-SGb"/>
-                            <constraint firstItem="5HH-Ia-dfc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="D02-o9-keF"/>
-                            <constraint firstItem="epC-nN-tVk" firstAttribute="top" secondItem="bfx-jc-ywg" secondAttribute="bottom" constant="40" id="DGP-zY-eXl"/>
-                            <constraint firstItem="bfx-jc-ywg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FtA-d6-BTi"/>
-                            <constraint firstItem="epC-nN-tVk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="M28-UP-sOY"/>
-                            <constraint firstItem="5HH-Ia-dfc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="RCP-2H-YRr"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="epC-nN-tVk" secondAttribute="bottom" id="TGJ-7H-Ahp"/>
-                            <constraint firstAttribute="trailing" secondItem="epC-nN-tVk" secondAttribute="trailing" id="hRV-ja-0DI"/>
-                            <constraint firstItem="epC-nN-tVk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="xfx-hx-3Mg"/>
-                        </constraints>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="randomizeButton" destination="bfx-jc-ywg" id="bgh-OD-M4v"/>
-                        <outlet property="resultLabel" destination="5HH-Ia-dfc" id="zyM-4L-CTl"/>
-                        <outlet property="tableView" destination="epC-nN-tVk" id="oPD-xy-Emd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="280" y="337"/>
-        </scene>
         <!--Random Picker View Controller-->
         <scene sceneID="jJL-Yg-Nrd">
             <objects>
@@ -227,7 +148,7 @@
     </scenes>
     <resources>
         <image name="RandomizeButtonBG" width="91" height="38"/>
-        <image name="add" width="30" height="30"/>
+        <image name="add" width="31" height="31"/>
         <image name="delete" width="30" height="30"/>
         <image name="visible" width="45" height="45"/>
     </resources>
