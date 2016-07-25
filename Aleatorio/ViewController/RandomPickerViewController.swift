@@ -55,6 +55,7 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.getHiddenIndexes()
         
         self.pickerView.selectRow(self.allItems.count/2, inComponent: 0, animated: false)
+        self.pickerView(self.pickerView, didSelectRow: self.allItems.count/2, inComponent: 0)
         
         self.endEdition(self.editButton)
         
@@ -131,12 +132,12 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         
         for item in self.allItems {
             
-            let isHidden = item.isHidden?.boolValue
-            if isHidden! {
+            if item.isHidden == true {
                 self.hiddenIndexes.append(self.allItems.indexOf(item)!)
             }
         }
     }
+    
     
 //------------------------------
 //MARK: Buttons actions
@@ -225,6 +226,7 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.allItems.append(newItem)
         self.pickerView.reloadAllComponents()
         self.pickerView.selectRow(self.allItems.count - 1, inComponent: 0, animated: true)
+        self.pickerView(self.pickerView, didSelectRow: self.allItems.count - 1, inComponent: 0)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -272,11 +274,15 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         
         let selectedRow = self.pickerView.selectedRowInComponent(0)
         
-        let item = self.allItems[selectedRow]
-        item.delete()
+        let selectedItem = self.allItems[selectedRow]
+        selectedItem.delete()
         
         self.allItems.removeAtIndex(selectedRow)
         self.pickerView.reloadAllComponents()
+        
+        let newSelectedRow = self.pickerView.selectedRowInComponent(0)
+        self.pickerView(self.pickerView, didSelectRow: newSelectedRow, inComponent: 0)
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -284,9 +290,8 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         
         let selectedRow = self.pickerView.selectedRowInComponent(0)
         let item = self.allItems[selectedRow]
-        let isHidden = item.isHidden?.boolValue
 
-        if isHidden! {
+        if item.isHidden == true {
             
             let indexToRemove = self.hiddenIndexes.indexOf(selectedRow)
             self.hiddenIndexes.removeAtIndex(indexToRemove!)
@@ -339,14 +344,11 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         pickerLabel.font = font
         pickerLabel.textAlignment = NSTextAlignment.Center
         
-        let isHidden = item.isHidden?.boolValue
-        if isHidden! {
-            //pickerLabel.enabled = false
+        if item.isHidden == true {
             pickerLabel.textColor = UIColor.lightGrayColor()
             pickerLabel.alpha = 0.5
         }
         else {
-            //pickerLabel.enabled = true
             pickerLabel.textColor = UIColor.blackColor()
             pickerLabel.alpha = 1.0
         }
@@ -360,9 +362,9 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let isHidden = self.allItems[row].isHidden!.boolValue
+        let item = self.allItems[row]
         
-        if isHidden {
+        if item.isHidden == true {
             self.hideButton.setImage(UIImage(named: "invisible"), forState: .Normal)
         }
         else {
