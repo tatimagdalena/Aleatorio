@@ -27,7 +27,7 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
 //------------------------------
 //MARK: Properties
 //------------------------------
-    let fontName: String = "Kannada Sangam MN"
+    let fontName: String = "KannadaSangamMN"
     let fontNameBold: String = "KannadaSangamMN-Bold"
     let snorkelBlueColor: UIColor = UIColor(red: 11/255.0, green: 80/255.0, blue: 130/255.0, alpha: 1.0)
     let defaultRadius: CGFloat = 8.0
