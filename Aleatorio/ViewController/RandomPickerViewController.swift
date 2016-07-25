@@ -280,16 +280,19 @@ class RandomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         let color = UIColor.darkGrayColor()
         
         let pickerLabel = UILabel()
-        pickerLabel.textColor = color
         pickerLabel.text = item.name
         pickerLabel.font = font
         pickerLabel.textAlignment = NSTextAlignment.Center
         
         if item.isHidden! {
-            pickerLabel.hidden = true
+            //pickerLabel.enabled = false
+            pickerLabel.textColor = UIColor.lightGrayColor()
+            pickerLabel.alpha = 0.5
         }
         else {
-            pickerLabel.hidden = false
+            //pickerLabel.enabled = true
+            pickerLabel.textColor = UIColor.blackColor()
+            pickerLabel.alpha = 1.0
         }
         
         return pickerLabel
