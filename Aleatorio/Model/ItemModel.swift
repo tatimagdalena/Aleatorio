@@ -6,21 +6,18 @@
 //  Copyright © 2016 Tatiana Magdalena. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import CoreData
 
-class ItemModel: NSObject {
 
-    var name: String!
-    var isHidden: Bool!
+class ItemModel: NSManagedObject {
 
-    override init() {
-        super.init()
-    }
+// Insert code here to add functionality to your managed object subclass
     
-    init(name: String, isHidden: Bool) {
-        super.init()
-        
-        self.name = name
-        self.isHidden = isHidden
-    }
+//    init(name: String, isHidden: Bool) {
+//        super.init()
+//        
+//        self.name = name
+//        self.isHidden = isHidden
+//    }
 }

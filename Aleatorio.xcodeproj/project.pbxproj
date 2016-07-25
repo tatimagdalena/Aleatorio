@@ -17,8 +17,11 @@
 		160014601D40F8A4006F01FF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1600145C1D40F8A4006F01FF /* Info.plist */; };
 		160014611D40F8A4006F01FF /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600145E1D40F8A4006F01FF /* SimpleAlert.swift */; };
 		160014621D40F8A4006F01FF /* SimpleAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1600145F1D40F8A4006F01FF /* SimpleAlert.xib */; };
-		1600146B1D457700006F01FF /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600146A1D457700006F01FF /* ItemModel.swift */; };
 		1600146E1D459427006F01FF /* RangeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600146D1D459427006F01FF /* RangeExtension.swift */; };
+		160014701D45AA08006F01FF /* ActiveCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600146F1D45AA08006F01FF /* ActiveCoreData.swift */; };
+		160014731D45AAAE006F01FF /* Aleatorio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 160014711D45AAAE006F01FF /* Aleatorio.xcdatamodeld */; };
+		160014781D45AE8D006F01FF /* ItemModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160014761D45AE8D006F01FF /* ItemModel+CoreDataProperties.swift */; };
+		160014791D45AE8D006F01FF /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160014771D45AE8D006F01FF /* ItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +59,11 @@
 		1600145D1D40F8A4006F01FF /* SimpleAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAlert.h; sourceTree = "<group>"; };
 		1600145E1D40F8A4006F01FF /* SimpleAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		1600145F1D40F8A4006F01FF /* SimpleAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleAlert.xib; sourceTree = "<group>"; };
-		1600146A1D457700006F01FF /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		1600146D1D459427006F01FF /* RangeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeExtension.swift; sourceTree = "<group>"; };
+		1600146F1D45AA08006F01FF /* ActiveCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveCoreData.swift; sourceTree = "<group>"; };
+		160014721D45AAAE006F01FF /* Aleatorio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Aleatorio.xcdatamodel; sourceTree = "<group>"; };
+		160014761D45AE8D006F01FF /* ItemModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		160014771D45AE8D006F01FF /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 		160014401D40F161006F01FF /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				1600146F1D45AA08006F01FF /* ActiveCoreData.swift */,
 				1600145B1D40F8A4006F01FF /* SimpleAlert */,
 			);
 			path = Vendor;
@@ -177,7 +184,9 @@
 		160014691D4576E0006F01FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1600146A1D457700006F01FF /* ItemModel.swift */,
+				160014761D45AE8D006F01FF /* ItemModel+CoreDataProperties.swift */,
+				160014771D45AE8D006F01FF /* ItemModel.swift */,
+				160014711D45AAAE006F01FF /* Aleatorio.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,9 +336,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1600146E1D459427006F01FF /* RangeExtension.swift in Sources */,
-				1600146B1D457700006F01FF /* ItemModel.swift in Sources */,
+				160014701D45AA08006F01FF /* ActiveCoreData.swift in Sources */,
+				160014791D45AE8D006F01FF /* ItemModel.swift in Sources */,
 				1600143F1D404AC9006F01FF /* RandomPickerViewController.swift in Sources */,
+				160014731D45AAAE006F01FF /* Aleatorio.xcdatamodeld in Sources */,
 				1600140D1D3F07A5006F01FF /* AppDelegate.swift in Sources */,
+				160014781D45AE8D006F01FF /* ItemModel+CoreDataProperties.swift in Sources */,
 				160014611D40F8A4006F01FF /* SimpleAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,6 +588,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		160014711D45AAAE006F01FF /* Aleatorio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				160014721D45AAAE006F01FF /* Aleatorio.xcdatamodel */,
+			);
+			currentVersion = 160014721D45AAAE006F01FF /* Aleatorio.xcdatamodel */;
+			path = Aleatorio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 160014011D3F07A5006F01FF /* Project object */;
 }
